@@ -1,0 +1,409 @@
+@import "tailwindcss";
+
+/* =========================================
+   フォント定義
+========================================= */
+
+/* Noto Sans JP（Classic / Clear 用） */
+@font-face {
+  font-family: "NotoSansJP";
+  src: url("/fonts/NotoSansJP-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSansJP";
+  src: url("/fonts/NotoSansJP-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSansJP";
+  src: url("/fonts/NotoSansJP-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+/* BIZ UDPGothic（Game 用） */
+@font-face {
+  font-family: "BIZUDPGothic";
+  src: url("/fonts/BIZUDPGothic-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* M PLUS Rounded 1c（Soft 用） */
+@font-face {
+  font-family: "MPLUSRounded1c";
+  src: url("/fonts/MPLUSRounded1c-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MPLUSRounded1c";
+  src: url("/fonts/MPLUSRounded1c-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+/* =========================================
+   デザイントークン
+========================================= */
+:root {
+  --yomi-bg: #0c0c0d;
+  --yomi-card: #141416;
+  --yomi-border: #1e1e20;
+
+  --yomi-text: #e7ecf2;
+  --yomi-text-sub: #a9aeb6;
+
+  --yomi-accent: #4fa3ff;
+  --yomi-accent-hover: #70b8ff;
+  --yomi-accent-glass: #4fa3ff33;
+
+  --yomi-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+
+  --font-base: "NotoSansJP", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Meiryo", sans-serif;
+}
+
+@theme inline {
+  --color-yomi-bg: var(--yomi-bg);
+  --color-yomi-card: var(--yomi-card);
+  --color-yomi-border: var(--yomi-border);
+  --color-yomi-text: var(--yomi-text);
+  --color-yomi-text-sub: var(--yomi-text-sub);
+  --color-yomi-accent: var(--yomi-accent);
+  --color-yomi-accent-hover: var(--yomi-accent-hover);
+  --color-yomi-accent-glass: var(--yomi-accent-glass);
+}
+
+/* =========================================
+   ベーススタイル
+========================================= */
+body {
+  background-color: var(--yomi-bg);
+  color: var(--yomi-text);
+  font-family: var(--font-base);
+}
+
+/* =========================================
+   ボタン
+========================================= */
+.btn-yomi {
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  color: white;
+  background-color: var(--yomi-accent);
+  transition: background-color 0.2s;
+}
+
+.btn-yomi:hover {
+  background-color: var(--yomi-accent-hover);
+}
+
+/* -------------------------
+   カード
+-------------------------- */
+.card-yomi {
+  border-radius: 12px;
+  padding: 20px;
+  background-color: var(--yomi-card);
+  border: 1px solid var(--yomi-border);
+  box-shadow: var(--yomi-shadow);
+}
+
+@media (min-width: 640px) {
+  .card-yomi {
+    border-radius: 16px;
+    padding: 32px;
+  }
+}
+
+
+/* =========================================
+   プリセットボタン
+========================================= */
+.preset-btn {
+  border-radius: 12px;
+  padding: 14px 0;
+  text-align: center;
+  font-size: 15px;
+  background-color: var(--yomi-card);
+  color: var(--yomi-text-sub);
+  border: 1px solid var(--yomi-border);
+  transition: all 0.2s;
+}
+
+.preset-btn:hover {
+  background-color: #1a1b1e;
+  color: var(--yomi-text);
+  border-color: #2a2a2c;
+}
+
+.preset-btn.selected {
+  background-color: #1a1b1e;
+  color: var(--yomi-text);
+  border-color: var(--yomi-accent);
+  box-shadow: 0 0 0 3px var(--yomi-accent-glass);
+}
+
+/* =========================================
+   字幕プレビューキャンバス
+========================================= */
+.yomi-preview-canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* =========================================
+   字幕ボックス共通
+========================================= */
+.yomi-caption-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  width: 100%;
+  max-width: 1600px;
+}
+
+.yomi-caption-line {
+  padding: 4px 16px;
+  max-width: 90%;
+}
+
+/* =========================================
+   位置プリセット
+========================================= */
+.overlay-pos-bottom-center {
+  position: absolute;
+  bottom: 8%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.overlay-pos-bottom-left {
+  position: absolute;
+  bottom: 8%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 5%;
+}
+
+.overlay-pos-bottom-left .yomi-caption-box {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.overlay-pos-bottom-right {
+  position: absolute;
+  bottom: 8%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5%;
+}
+
+.overlay-pos-bottom-right .yomi-caption-box {
+  align-items: flex-end;
+  text-align: right;
+}
+
+
+/* =========================================
+   プレビュー用サイズ調整
+========================================= */
+.yomi-preview-canvas .yomi-caption-line.jp {
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.yomi-preview-canvas .yomi-caption-line.en {
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+/* プリセットごとのプレビューサイズ微調整 */
+.yomi-preview-canvas .preset-classic .yomi-caption-line.jp {
+  font-size: 17px;
+}
+
+.yomi-preview-canvas .preset-classic .yomi-caption-line.en {
+  font-size: 12px;
+}
+
+.yomi-preview-canvas .preset-game .yomi-caption-line.jp {
+  font-size: 16px;
+}
+
+.yomi-preview-canvas .preset-game .yomi-caption-line.en {
+  font-size: 11px;
+}
+
+.yomi-preview-canvas .preset-soft .yomi-caption-line.jp {
+  font-size: 16px;
+}
+
+.yomi-preview-canvas .preset-soft .yomi-caption-line.en {
+  font-size: 11px;
+}
+
+.yomi-preview-canvas .preset-clear .yomi-caption-line.jp {
+  font-size: 15px;
+}
+
+.yomi-preview-canvas .preset-clear .yomi-caption-line.en {
+  font-size: 10px;
+}
+
+
+/* =========================================
+   プリセット: Classic
+   万能、どんな配信でも使える標準字幕
+========================================= */
+.preset-classic .yomi-caption-line {
+  font-family: "NotoSansJP", sans-serif;
+  color: #ffffff;
+}
+
+.preset-classic .yomi-caption-line.jp {
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  text-shadow:
+    0 0 4px rgba(0, 0, 0, 1),
+    0 0 8px rgba(0, 0, 0, 0.9),
+    0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.preset-classic .yomi-caption-line.en {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  opacity: 0.95;
+  text-shadow:
+    0 0 4px rgba(0, 0, 0, 1),
+    0 0 8px rgba(0, 0, 0, 0.9),
+    0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* =========================================
+   プリセット: Game
+   ゲーム画面でも読みやすい、視認性重視
+========================================= */
+.preset-game .yomi-caption-line {
+  font-family: "BIZUDPGothic", sans-serif;
+  color: #fdfdfd;
+  font-weight: 700;
+}
+
+.preset-game .yomi-caption-line.jp {
+  font-size: 32px;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  text-shadow:
+    0 0 5px rgba(0, 0, 0, 1),
+    0 0 10px rgba(0, 0, 0, 0.85),
+    0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.preset-game .yomi-caption-line.en {
+  font-size: 23px;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  opacity: 0.96;
+  text-shadow:
+    0 0 5px rgba(0, 0, 0, 1),
+    0 0 10px rgba(0, 0, 0, 0.85),
+    0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+
+/* =========================================
+   プリセット: Soft
+   やわらかい、VTuber・雑談向け
+========================================= */
+.preset-soft .yomi-caption-line {
+  font-family: "MPLUSRounded1c", sans-serif;
+  color: #f8f8fa;
+}
+
+.preset-soft .yomi-caption-line.jp {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+.preset-soft .yomi-caption-line.en {
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  opacity: 0.9;
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================================
+   プリセット: Clear
+   ミニマル、おしゃれ・シンプル志向
+========================================= */
+.preset-clear .yomi-caption-line {
+  font-family: "NotoSansJP", sans-serif;
+  color: #fafafa;
+}
+
+.preset-clear .yomi-caption-line.jp {
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.35;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.4),
+    0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.preset-clear .yomi-caption-line.en {
+  font-size: 21px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  opacity: 0.9;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.4),
+    0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* =========================================
+   プレビュー専用の位置調整
+========================================= */
+.yomi-preview-canvas .overlay-pos-bottom-center,
+.yomi-preview-canvas .overlay-pos-bottom-left,
+.yomi-preview-canvas .overlay-pos-bottom-right {
+  bottom: 6%;
+}
