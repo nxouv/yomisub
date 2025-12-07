@@ -30,7 +30,7 @@ export function Footer() {
           </div>
 
           {/* 右側：ナビゲーション */}
-          <div className="flex flex-col gap-2 text-sm">
+          <nav className="flex gap-4 text-sm sm:self-start">
             <Link 
               href="/" 
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -51,7 +51,7 @@ export function Footer() {
             >
               プライバシーポリシー
             </a>
-          </div>
+          </nav>
         </div>
 
         {/* コピーライト */}
