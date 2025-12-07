@@ -69,12 +69,12 @@ export default function AboutPage() {
           <p className="text-sm sm:text-base text-yomi-text">
             →{" "}
             <a
-              href="https://haishinsekai.jp/yomisub"
+              href="/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-yomi-accent hover:underline"
             >
-              使い方の詳しい解説はこちら
+              YomiSubの使い方(準備中)
             </a>
           </p>
         </div>
