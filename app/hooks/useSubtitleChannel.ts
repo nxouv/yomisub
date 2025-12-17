@@ -35,12 +35,9 @@ export function useSubtitleChannel({
       return;
     }
 
-    // OBS環境検出してトランスポートを設定
-    const isOBS = typeof window !== "undefined" && !!(window as any).obsstudio;
 
     const ably = new Ably.Realtime({
       key: apiKey,
-      transports: isOBS ? ["xhr_streaming", "xhr_polling"] : undefined,
     });
 
     ablyRef.current = ably;
