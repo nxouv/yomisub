@@ -161,7 +161,8 @@ export function useTranslator({
 
   const translate = useCallback(
     async (text: string): Promise<string | null> => {
-      if (!translatorRef.current || status !== "ready") {
+      // translatorRef.currentが存在すれば準備完了とみなす
+      if (!translatorRef.current) {
         return null;
       }
 
@@ -179,7 +180,7 @@ export function useTranslator({
         return null;
       }
     },
-    [status]
+    [] // 依存配列を空に
   );
 
   const reset = useCallback(() => {

@@ -80,10 +80,12 @@ export function ControlCard() {
         return;
       }
 
+
       // 確定結果の場合、翻訳を実行
       let enText: string | undefined;
 
-      if (translationEnabled && isTranslatorReady) {
+
+      if (translationEnabled) {
         const translated = await translate(result.transcript);
         if (translated) {
           enText = translated;
@@ -256,14 +258,12 @@ export function ControlCard() {
           type="button"
           onClick={() => setTranslationEnabled(!translationEnabled)}
           disabled={isActive}
-          className={`relative w-12 h-7 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
-            translationEnabled ? "bg-yomi-accent" : "bg-yomi-border"
-          }`}
+          className={`relative w-12 h-7 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${translationEnabled ? "bg-yomi-accent" : "bg-yomi-border"
+            }`}
         >
           <span
-            className={`absolute top-1 left-1 w-5 h-5 rounded-full bg-white transition-transform ${
-              translationEnabled ? "translate-x-5" : "translate-x-0"
-            }`}
+            className={`absolute top-1 left-1 w-5 h-5 rounded-full bg-white transition-transform ${translationEnabled ? "translate-x-5" : "translate-x-0"
+              }`}
           />
         </button>
       </div>
@@ -292,17 +292,16 @@ export function ControlCard() {
         type="button"
         onClick={handleToggle}
         disabled={!selectedMicId || status === "connecting"}
-        className={`w-full py-3 rounded-lg font-medium text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
-          isActive
-            ? "bg-red-500 hover:bg-red-600"
-            : "bg-yomi-accent hover:bg-yomi-accent-hover"
-        }`}
+        className={`w-full py-3 rounded-lg font-medium text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${isActive
+          ? "bg-red-500 hover:bg-red-600"
+          : "bg-yomi-accent hover:bg-yomi-accent-hover"
+          }`}
       >
         {status === "connecting"
           ? "接続中..."
           : isActive
-          ? "字幕を停止"
-          : "字幕を開始"}
+            ? "字幕を停止"
+            : "字幕を開始"}
       </button>
 
       {error && <p className="text-xs text-center text-red-400">{error}</p>}

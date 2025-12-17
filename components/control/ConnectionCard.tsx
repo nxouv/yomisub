@@ -49,7 +49,14 @@ export function ConnectionCard() {
 
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
     if (!overlayUrl) return;
+
+    // 複数の形式でデータを設定
     e.dataTransfer.setData("text/plain", overlayUrl);
+    e.dataTransfer.setData("text/uri-list", overlayUrl);
+    e.dataTransfer.setData("text/x-moz-url", overlayUrl);
+
+    // ドラッグ効果を設定
+    e.dataTransfer.effectAllowed = "copy";
   };
 
   return (
