@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Copy# YomiSub - リアルタイム配信字幕ツール
 
-## Getting Started
+配信者向けのリアルタイム字幕生成ツールです。話した言葉が自動で字幕になり、OBSに表示できます。
 
-First, run the development server:
+## ✨ 特徴
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **リアルタイム字幕**: 話すだけで日本語字幕が自動生成されます
+- **英語翻訳**: 日本語字幕の下に英語訳を表示できます（ブラウザ内蔵翻訳機能使用）
+- **OBS対応**: ブラウザソースとして簡単に追加できます
+- **カスタマイズ**: 4種類のプリセットと3つの表示位置から選べます
+- **設定の自動同期**: ブラウザで設定を変更するとOBSにも自動反映されます
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 使い方
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. 字幕を開始する
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. [YomiSub](https://yomisub.haishinsekai.jp/) にアクセス
+2. マイクを選択
+3. 「字幕を開始」をクリック
+4. 話すと字幕が表示されます
 
-## Learn More
+### 2. OBSに追加する
 
-To learn more about Next.js, take a look at the following resources:
+1. 「OBS用URL」をコピー
+2. OBSで「ソース」→「+」→「ブラウザ」を追加
+3. URLを貼り付け
+4. 幅: 1920、高さ: 1080 を推奨
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. 設定をカスタマイズ
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **字幕スタイル**: Classic / Game / Soft / Clear から選択
+- **表示位置**: 左 / 中央 / 右 から選択
+- **英語翻訳**: ON / OFF を切り替え
 
-## Deploy on Vercel
+設定を変更すると、OBSにも自動で反映されます。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 💡 ヒント
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **翌日の配信**: ブラウザを閉じても設定は保存されます。翌日は「字幕を開始」を押すだけでOKです
+- **OBSのURL**: 一度設定すれば、毎回変更する必要はありません
+- **英語翻訳**: Chrome 138以降で利用可能です
+
+## ⚠️ 注意事項
+
+- Chrome / Edge での利用を推奨します（音声認識機能のため）
+- 英語翻訳機能は Chrome 138 以降が必要です
+- マイクへのアクセス許可が必要です
+
+## 🛠️ 技術スタック
+
+- Next.js 16
+- TypeScript
+- Tailwind CSS
+- Web Speech API（音声認識）
+- Chrome Translator API（翻訳）
+- Ably（リアルタイム通信）
+
+## 📝 ライセンス
+
+MIT License

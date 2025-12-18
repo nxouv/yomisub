@@ -137,9 +137,16 @@ export function useSpeechRecognition({
     }
 
     if (recognitionRef.current) {
-      recognitionRef.current.onend = null;
-      recognitionRef.current.stop();
+      const recognition = recognitionRef.current;
       recognitionRef.current = null;
+      recognition.onend = null;
+      recognition.onerror = null;
+      recognition.onresult = null;
+      try {
+        recognition.stop();
+      } catch {
+        // 既に停止している場合のエラーを無視
+      }
     }
 
     if (streamRef.current) {
@@ -193,8 +200,8 @@ export function useSpeechRecognition({
         onError?.("マイクへのアクセスが拒否されました。");
       } else if (event.error === "audio-capture") {
         onError?.("マイクが見つかりません。");
-      } else if (event.error === "no-speech") {
-        // 無音の場合は無視
+      } else if (event.error === "no-speech" || event.error === "aborted") {
+        // 無音または停止時は無視
       } else {
         onError?.(`音声認識エラー: ${event.error}`);
       }

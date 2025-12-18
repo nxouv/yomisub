@@ -8,6 +8,7 @@ type Props = {
   jpText: string;
   enText?: string;
   isPreview?: boolean;
+  showEnglish?: boolean;
 };
 
 export function SubtitleDisplay({
@@ -16,6 +17,7 @@ export function SubtitleDisplay({
   jpText,
   enText,
   isPreview = false,
+  showEnglish = true,
 }: Props) {
   if (isPreview) {
     return (
@@ -23,7 +25,11 @@ export function SubtitleDisplay({
         <div className={`overlay-pos-${position}`}>
           <div className={`yomi-caption-box preset-${preset}`}>
             <p className="yomi-caption-line jp">{jpText}</p>
-            {enText && <p className="yomi-caption-line en">{enText}</p>}
+            {showEnglish && (
+              <p className={`yomi-caption-line en ${enText ? '' : 'invisible'}`}>
+                {enText || '\u00A0'}
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -35,7 +41,11 @@ export function SubtitleDisplay({
       <div className={`overlay-pos-${position}`}>
         <div className={`yomi-caption-box preset-${preset}`}>
           <p className="yomi-caption-line jp">{jpText}</p>
-          {enText && <p className="yomi-caption-line en">{enText}</p>}
+          {showEnglish && (
+            <p className={`yomi-caption-line en ${enText ? '' : 'invisible'}`}>
+              {enText || '\u00A0'}
+            </p>
+          )}
         </div>
       </div>
     </div>

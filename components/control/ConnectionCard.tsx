@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useSessionStore } from "@/app/store/useSessionStore";
 import { useAppearanceStore } from "@/app/store/useAppearanceStore";
+import { useSubtitleChannel } from "@/app/hooks/useSubtitleChannel";
 
 const PRESET_LABELS = {
   classic: "Classic",
@@ -18,10 +19,13 @@ const POSITION_LABELS = {
 } as const;
 
 export function ConnectionCard() {
-  const { sessionId, generateNewSession } = useSessionStore();
+  const { sessionId, generateNewSession, translationEnabled } = useSessionStore();
   const { preset, position } = useAppearanceStore();
   const [baseUrl, setBaseUrl] = useState("");
   const [copied, setCopied] = useState(false);
+  const isFirstRender = useRef(true);
+
+  const { send } = useSubtitleChannel({ sessionId });
 
   useEffect(() => {
     if (!sessionId) {
@@ -32,8 +36,26 @@ export function ConnectionCard() {
     }
   }, [sessionId, generateNewSession]);
 
+  // 設定変更時にOBSに送信
+  useEffect(() => {
+    // 初回レンダリング時は送信しない
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    if (sessionId) {
+      send({
+        type: "settings",
+        preset,
+        position,
+        showEnglish: translationEnabled,
+      });
+    }
+  }, [preset, position, translationEnabled, sessionId, send]);
+
   const overlayUrl = baseUrl && sessionId
-    ? `${baseUrl}/overlay/${sessionId}?preset=${preset}&position=${position}`
+    ? `${baseUrl}/overlay/${sessionId}?preset=${preset}&position=${position}&showEnglish=${translationEnabled}`
     : "";
 
   const handleCopy = async () => {
@@ -50,12 +72,10 @@ export function ConnectionCard() {
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
     if (!overlayUrl) return;
 
-    // 複数の形式でデータを設定
     e.dataTransfer.setData("text/plain", overlayUrl);
     e.dataTransfer.setData("text/uri-list", overlayUrl);
     e.dataTransfer.setData("text/x-moz-url", overlayUrl);
 
-    // ドラッグ効果を設定
     e.dataTransfer.effectAllowed = "copy";
   };
 
@@ -78,7 +98,7 @@ export function ConnectionCard() {
             onDragStart={handleDragStart}
             title="OBS にドラッグ＆ドロップ"
           >
-            <span className="text-xs text-yomi-text-sub">⠿</span>
+            <span className="text-xs text-yomi-text-sub">⋮⋮</span>
           </div>
           <span className="flex-1 text-sm text-yomi-text break-all">
             {overlayUrl || "読み込み中…"}
@@ -99,7 +119,7 @@ export function ConnectionCard() {
       {/* テスト表示 */}
       {overlayUrl && (
         <a
-          href={`/overlay/${sessionId}?preset=${preset}&position=${position}`}
+          href={`/overlay/${sessionId}?preset=${preset}&position=${position}&showEnglish=${translationEnabled}`}
           target="_blank"
           rel="noopener noreferrer"
           className="text-sm text-yomi-accent hover:text-yomi-accent-hover underline underline-offset-2"
@@ -119,6 +139,10 @@ export function ConnectionCard() {
           <span className="inline-flex items-center gap-1.5 rounded-full bg-yomi-border/50 px-3 py-1 text-xs text-yomi-text">
             <span className="opacity-60">位置</span>
             <span className="font-medium">{POSITION_LABELS[position]}</span>
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-yomi-border/50 px-3 py-1 text-xs text-yomi-text">
+            <span className="opacity-60">英語</span>
+            <span className="font-medium">{translationEnabled ? "ON" : "OFF"}</span>
           </span>
         </div>
       </div>

@@ -12,6 +12,12 @@ export type SubtitleMessage =
   }
   | {
     type: "clear";
+  }
+  | {
+    type: "settings";
+    preset: string;
+    position: string;
+    showEnglish: boolean;
   };
 
 type UseSubtitleChannelProps = {
@@ -34,7 +40,6 @@ export function useSubtitleChannel({
       console.error("NEXT_PUBLIC_ABLY_API_KEY is not set");
       return;
     }
-
 
     const ably = new Ably.Realtime({
       key: apiKey,

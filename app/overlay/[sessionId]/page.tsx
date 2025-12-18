@@ -27,19 +27,25 @@ export default function OverlayPage() {
 
   const presetParam = searchParams.get("preset");
   const positionParam = searchParams.get("position");
+  const showEnglishParam = searchParams.get("showEnglish");
 
-  const preset: SubtitlePreset = VALID_PRESETS.includes(
+  const initialPreset: SubtitlePreset = VALID_PRESETS.includes(
     presetParam as SubtitlePreset
   )
     ? (presetParam as SubtitlePreset)
     : "classic";
 
-  const position: SubtitlePosition = VALID_POSITIONS.includes(
+  const initialPosition: SubtitlePosition = VALID_POSITIONS.includes(
     positionParam as SubtitlePosition
   )
     ? (positionParam as SubtitlePosition)
     : "bottom-center";
 
+  const initialShowEnglish = showEnglishParam !== "false";
+
+  const [preset, setPreset] = useState<SubtitlePreset>(initialPreset);
+  const [position, setPosition] = useState<SubtitlePosition>(initialPosition);
+  const [showEnglish, setShowEnglish] = useState(initialShowEnglish);
   const [jpText, setJpText] = useState("");
   const [enText, setEnText] = useState("");
 
@@ -47,6 +53,17 @@ export default function OverlayPage() {
     if (message.type === "clear") {
       setJpText("");
       setEnText("");
+      return;
+    }
+
+    if (message.type === "settings") {
+      if (VALID_PRESETS.includes(message.preset as SubtitlePreset)) {
+        setPreset(message.preset as SubtitlePreset);
+      }
+      if (VALID_POSITIONS.includes(message.position as SubtitlePosition)) {
+        setPosition(message.position as SubtitlePosition);
+      }
+      setShowEnglish(message.showEnglish);
       return;
     }
 
@@ -73,6 +90,7 @@ export default function OverlayPage() {
       position={position}
       jpText={jpText}
       enText={enText || undefined}
+      showEnglish={showEnglish}
     />
   );
 }
