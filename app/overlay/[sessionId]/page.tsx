@@ -53,14 +53,11 @@ export default function OverlayPage() {
     if (message.type === "subtitle") {
       setJpText(message.jpText);
 
-      // 英語字幕の更新
       if (message.enText) {
         setEnText(message.enText);
       } else if (message.isFinal && !message.enText) {
-        // 確定時に英語がない場合はクリア（翻訳OFFまたは翻訳失敗）
         setEnText("");
       }
-      // 中間結果の場合は英語をそのまま維持（前の翻訳を表示し続ける）
     }
   }, []);
 

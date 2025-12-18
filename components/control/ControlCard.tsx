@@ -175,6 +175,7 @@ export function ControlCard() {
 
     if (isActive) {
       stop();
+      send({ type: "clear" });
       setStatus("idle");
     } else {
       setStatus("connecting");
