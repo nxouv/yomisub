@@ -19,6 +19,7 @@ const POSITION_LABELS = {
 } as const;
 
 export function ConnectionCard() {
+  const [copied, setCopied] = useState(false);
   const { sessionId, generateNewSession, translationEnabled } = useSessionStore();
   const { preset, position } = useAppearanceStore();
   const [baseUrl, setBaseUrl] = useState("");
