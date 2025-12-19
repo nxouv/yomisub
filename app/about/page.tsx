@@ -5,17 +5,17 @@ import { Shell } from "@/components/layout/Shell";
 export const metadata: Metadata = {
   title: "YomiSubについて | YomiSub",
   description:
-    "YomiSubは配信者の声をリアルタイムで英語字幕に変換するツールです。OBSにURLを貼るだけで使えて、無料・登録不要。開発の思いや特徴を紹介します。",
+    "YomiSubは配信者の声をリアルタイムで字幕に変換するツールです。OBSにURLを貼るだけで使えて、無料・登録不要。",
   openGraph: {
     title: "YomiSubについて | YomiSub",
     description:
-      "YomiSubは配信者の声をリアルタイムで英語字幕に変換するツールです。OBSにURLを貼るだけで使えて、無料・登録不要。開発の思いや特徴を紹介します。",
+      "YomiSubは配信者の声をリアルタイムで字幕に変換するツールです。OBSにURLを貼るだけで使えて、無料・登録不要。",
     url: "/about",
   },
   twitter: {
     title: "YomiSubについて | YomiSub",
     description:
-      "YomiSubは配信者の声をリアルタイムで英語字幕に変換するツールです。OBSにURLを貼るだけで使えて、無料・登録不要。開発の思いや特徴を紹介します。",
+      "YomiSubは配信者の声をリアルタイムで字幕に変換するツールです。OBSにURLを貼るだけで使えて、無料・登録不要。",
   },
   alternates: {
     canonical: "/about",
@@ -26,7 +26,7 @@ export default function AboutPage() {
   return (
     <Shell>
       <article className="max-w-xl mx-auto py-8 sm:py-12">
-        {/* タイトル：アイコン + About（縦並び） */}
+        {/* タイトル */}
         <div className="flex flex-col items-center mb-12">
           <Image
             src="/icon.png"
@@ -35,38 +35,70 @@ export default function AboutPage() {
             height={56}
             className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl mb-3"
           />
-          <h1 className="text-xl sm:text-2xl font-bold text-yomi-text">About</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-yomi-text">YomiSubについて</h1>
         </div>
 
-        <div className="space-y-6 text-sm sm:text-base text-yomi-text leading-relaxed">
-          <p>
-            YomiSubは
-            <a
-              href="https://x.com/nxouv"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-yomi-accent hover:underline"
-            >
-              なな太郎
-            </a>
-            が開発している、配信者のための字幕ツールです。
-          </p>
+        <div className="space-y-10">
+          {/* このツールについて */}
+          <section className="space-y-4">
+            <h2 className="text-lg font-semibold text-yomi-text">このツールについて</h2>
+            <div className="space-y-3 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
+              <p>
+                YomiSubは
+                <a
+                  href="https://x.com/nxouv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-yomi-accent hover:underline"
+                >
+                  なな太郎
+                </a>
+                が開発している、配信者のためのリアルタイム字幕ツールです。
+              </p>
+              <p>
+                話した言葉が自動で字幕になり、OBSの配信画面に表示できます。英語翻訳をオンにすれば、海外のリスナーにも配信の内容が伝わります。
+              </p>
+            </div>
+          </section>
 
-          <p>
-            日本語で配信していると、海外のリスナーが見に来てくれることがあります。でも言葉が通じないと、せっかく来てくれても配信の面白さが伝わらない。それはもったいないなと思っていました。
-          </p>
+          {/* 特徴 */}
+          <section className="space-y-4">
+            <h2 className="text-lg font-semibold text-yomi-text">特徴</h2>
+            <div className="space-y-3 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
+              <p>
+                <span className="text-yomi-text font-medium">かんたん設定</span> — 難しい設定は必要ありません。URLをOBSに貼るだけで使えます。
+              </p>
+              <p>
+                <span className="text-yomi-text font-medium">無料・登録不要</span> — アカウント作成なしで、すぐに使い始められます。
+              </p>
+              <p>
+                <span className="text-yomi-text font-medium">リアルタイム</span> — 話した瞬間に字幕が表示されます。
+              </p>
+            </div>
+          </section>
 
-          <p>
-            そこで、配信者の声をリアルタイムで英語字幕に変換するツールを作ることにしました。OBSにURLを貼るだけで使えて、難しい設定は必要ありません。
-          </p>
-
-          <p>
-            すべての処理はブラウザ内で完結するので、音声データが外部に送られることもありません。無料で、登録も不要です。
-          </p>
-
-          <p>
-            海外のリスナーにも配信の面白さが伝わるように。そんな思いで開発しています。
-          </p>
+          {/* 使い方 */}
+          <section className="space-y-4">
+            <h2 className="text-lg font-semibold text-yomi-text">使い方</h2>
+            <div className="space-y-4 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
+              <div className="space-y-1">
+                <p className="text-yomi-text font-medium">1. 字幕デザインを選ぶ</p>
+                <p>プリセット（Classic / Game / Soft / Clear）と表示位置を選びます。</p>
+              </div>
+              <div className="space-y-1">
+                <p className="text-yomi-text font-medium">2. 字幕コントロールを設定</p>
+                <p>使用するマイクを選び、英語翻訳が必要ならオンにします。</p>
+              </div>
+              <div className="space-y-1">
+                <p className="text-yomi-text font-medium">3. OBSに接続</p>
+                <p>「OBS用URL」の左にあるアイコンをOBSの配信画面にドラッグするか、URLをコピーしてブラウザソースに貼り付けます。</p>
+              </div>
+              <div className="space-y-1">
+                <p className="text-yomi-text font-medium">4. 字幕を開始</p>
+                <p>「字幕を開始」をクリックすると、話した言葉がリアルタイムで字幕になります。</p>
+              </div>
+            </div>
+          </section>
         </div>
       </article>
     </Shell>

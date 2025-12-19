@@ -11,7 +11,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "YomiSub: 配信をリアルタイムで英語字幕に",
+  title: "YomiSub: OBSで使えるリアルタイム字幕ツール",
   description:
     "無料ですぐ使える配信字幕ツール。声をリアルタイムで英語字幕に変換します。OBSに貼るだけで使えて、データはブラウザ内で処理されるので安心。",
   authors: [{ name: "なな太郎", url: "https://x.com/nxouv" }],
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
     url: "/",
-    title: "YomiSub: 配信をリアルタイムで英語字幕に",
+    title: "YomiSub: OBSで使えるリアルタイム字幕ツール",
     description:
       "無料ですぐ使える配信字幕ツール。声をリアルタイムで英語字幕に変換します。OBSに貼るだけで使えて、データはブラウザ内で処理されるので安心。",
     siteName: "YomiSub",
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
         url: "/icon.png",
         width: 512,
         height: 512,
-        alt: "YomiSub: 配信をリアルタイムで英語字幕に",
+        alt: "YomiSub: OBSで使えるリアルタイム字幕ツール",
       },
     ],
   },
   twitter: {
     card: "summary",
-    title: "YomiSub: 配信をリアルタイムで英語字幕に",
+    title: "YomiSub: OBSで使えるリアルタイム字幕ツール",
     description:
       "無料ですぐ使える配信字幕ツール。声をリアルタイムで英語字幕に変換します。OBSに貼るだけで使えて、データはブラウザ内で処理されるので安心。",
     creator: "@nxouv",

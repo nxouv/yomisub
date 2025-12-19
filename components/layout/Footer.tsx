@@ -12,7 +12,7 @@ export function Footer() {
               YomiSub
             </Link>
             <p className="text-sm text-yomi-text-sub">
-              配信をリアルタイムで英語字幕に
+              OBSで使えるリアルタイム字幕ツール
             </p>
             <p className="text-sm text-yomi-text-sub">
               Made with 💙 by{" "}
@@ -34,6 +34,9 @@ export function Footer() {
             </Link>
             <Link href="/about" className="text-yomi-text-sub hover:text-yomi-text">
               YomiSubってなに？
+            </Link>
+            <Link href="#" className="text-yomi-text-sub hover:text-yomi-text">
+              YomiSubの使い方（準備中）
             </Link>
             <Link href="https://nanataro.app/privacy" className="text-yomi-text-sub hover:text-yomi-text">
               プライバシーポリシー
