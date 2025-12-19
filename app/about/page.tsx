@@ -27,7 +27,7 @@ export default function AboutPage() {
     <Shell>
       <article className="max-w-xl mx-auto py-8 sm:py-12">
         {/* タイトル */}
-        <div className="flex flex-col items-center mb-12">
+        <div className="flex flex-col items-center mb-14">
           <Image
             src="/icon.png"
             alt="YomiSub"
@@ -38,11 +38,11 @@ export default function AboutPage() {
           <h1 className="text-xl sm:text-2xl font-bold text-yomi-text">YomiSubについて</h1>
         </div>
 
-        <div className="space-y-10">
+        <div className="space-y-14">
           {/* このツールについて */}
-          <section className="space-y-4">
+          <section className="space-y-5">
             <h2 className="text-lg font-semibold text-yomi-text">YomiSubとは</h2>
-            <div className="space-y-3 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
+            <div className="space-y-4 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
               <p>
                 YomiSub(よみさぶ)は
                 <a
@@ -61,11 +61,13 @@ export default function AboutPage() {
               <p>
                 英語翻訳をオンにすれば、海外のリスナーにも配信の内容が伝わります。日本語のみ表示もできます
               </p>
-              <p><span className="font-bold">
-                ※最新版のGoogle Chromeで利用できます（ Chrome 138以降のバージョン）
-              </span></p>
+              <p className="mt-2">
+                <span className="font-bold">
+                  ※最新版のGoogle Chromeで利用できます（ Chrome 138以降のバージョン）
+                </span>
+              </p>
             </div>
-            <div className="space-y-3 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
+            <div className="space-y-4 text-sm sm:text-base text-yomi-text-sub leading-relaxed pt-2">
               <p>
                 <span className="text-yomi-text font-medium">かんたん設定</span> — 難しい設定は必要なし。URLをOBSにドラッグするだけ
               </p>
@@ -79,9 +81,9 @@ export default function AboutPage() {
           </section>
 
           {/* 使い方 */}
-          <section className="space-y-4">
+          <section className="space-y-5">
             <h2 className="text-lg font-semibold text-yomi-text">使いかた</h2>
-            <div className="space-y-4 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
+            <div className="space-y-6 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
               <div className="space-y-1">
                 <p className="text-yomi-text font-medium">1. 「字幕デザイン」を選ぶ</p>
                 <p>プリセット（Classic / Game / Soft / Clear）と表示位置を選びます</p>
@@ -100,10 +102,11 @@ export default function AboutPage() {
               </div>
             </div>
           </section>
+
           {/* うまくいかないとき */}
-          <section className="space-y-4">
+          <section className="space-y-5">
             <h2 className="text-lg font-semibold text-yomi-text">うまくいかないとき</h2>
-            <div className="space-y-3 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
+            <div className="space-y-4 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
               <p>
                 <span className="text-yomi-text font-medium">字幕が表示されない</span> — 「字幕を停止」をクリックしてから、もう一度「字幕を開始」をクリックしてみてください
               </p>
