@@ -63,21 +63,6 @@ export default function AboutPage() {
             海外のリスナーにも配信の面白さが伝わるように。そんな思いで開発しています。
           </p>
         </div>
-
-        <div className="mt-12 pt-8 border-t border-yomi-border">
-          <h2 className="text-lg font-semibold text-yomi-text mb-3">使い方</h2>
-          <p className="text-sm sm:text-base text-yomi-text">
-            →{" "}
-            <a
-              href="/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-yomi-accent hover:underline"
-            >
-              YomiSubの使い方(準備中)
-            </a>
-          </p>
-        </div>
       </article>
     </Shell>
   );
