@@ -338,8 +338,7 @@ body {
 
 /* =========================================
    プリセット: Soft
-   やわらかい、VTuber・雑談向け
-========================================= */
+   ========================================= */
 .preset-soft .yomi-caption-line {
   font-family: "MPLUSRounded1c", sans-serif;
   color: #f8f8fa;
@@ -351,8 +350,9 @@ body {
   letter-spacing: 0.04em;
   line-height: 1.4;
   text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(255, 255, 255, 0.15);
+    0 0 4px rgba(0, 0, 0, 0.9),
+    0 0 8px rgba(0, 0, 0, 0.7),
+    0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
 .preset-soft .yomi-caption-line.en {
@@ -362,15 +362,14 @@ body {
   line-height: 1.4;
   opacity: 0.9;
   text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(255, 255, 255, 0.15);
+    0 0 4px rgba(0, 0, 0, 0.9),
+    0 0 8px rgba(0, 0, 0, 0.7),
+    0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
-
 /* =========================================
-   プリセット: Clear
-   ミニマル、おしゃれ・シンプル志向
-========================================= */
+     プリセット: Clear
+     ========================================= */
 .preset-clear .yomi-caption-line {
   font-family: "NotoSansJP", sans-serif;
   color: #fafafa;
@@ -382,8 +381,9 @@ body {
   letter-spacing: 0.03em;
   line-height: 1.35;
   text-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.4),
-    0 0 8px rgba(0, 0, 0, 0.2);
+    0 0 3px rgba(0, 0, 0, 0.8),
+    0 0 6px rgba(0, 0, 0, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .preset-clear .yomi-caption-line.en {
@@ -393,8 +393,9 @@ body {
   line-height: 1.35;
   opacity: 0.9;
   text-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.4),
-    0 0 8px rgba(0, 0, 0, 0.2);
+    0 0 3px rgba(0, 0, 0, 0.8),
+    0 0 6px rgba(0, 0, 0, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 
