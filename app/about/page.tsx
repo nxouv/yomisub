@@ -44,7 +44,7 @@ export default function AboutPage() {
             <h2 className="text-lg font-semibold text-yomi-text">YomiSubとは</h2>
             <div className="space-y-3 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
               <p>
-                YomiSubは
+                YomiSub(よみさぶ)は
                 <a
                   href="https://x.com/nxouv"
                   target="_blank"
@@ -53,7 +53,7 @@ export default function AboutPage() {
                 >
                   なな太郎
                 </a>
-                が開発している、配信者のためのリアルタイム字幕ツールです
+                が開発した、配信者のためのリアルタイム字幕ツールです
               </p>
               <p>
                 話した言葉が自動で日本語・英語字幕になって、OBSの配信画面に表示できます
