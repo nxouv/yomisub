@@ -180,9 +180,11 @@ export function useSpeechRecognition({
     recognition.interimResults = true;
 
     recognition.onresult = (event) => {
+      console.log("=== onresult fired ===", event.results);
       const lastIndex = event.results.length - 1;
       const result = event.results[lastIndex];
       const transcript = result[0].transcript;
+      console.log("Transcript:", transcript);
       const now = Date.now();
 
       if (result.isFinal) {
@@ -201,6 +203,7 @@ export function useSpeechRecognition({
     };
 
     recognition.onerror = (event) => {
+      console.log("=== onerror fired ===", event.error);
       console.error("Speech recognition error:", event.error);
       if (event.error === "not-allowed") {
         onError?.("マイクへのアクセスが拒否されました。");
@@ -214,6 +217,7 @@ export function useSpeechRecognition({
     };
 
     recognition.onend = () => {
+      console.log("=== onend fired ===");
       if (isListeningRef.current && recognitionRef.current) {
         try {
           recognitionRef.current.start();
