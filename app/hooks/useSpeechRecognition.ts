@@ -61,7 +61,6 @@ export function useSpeechRecognition({
   deviceId,
 }: UseSpeechRecognitionProps) {
   const recognitionRef = useRef<SpeechRecognitionType | null>(null);
-  const streamRef = useRef<MediaStream | null>(null);
   const [isListening, setIsListening] = useState(false);
   const isListeningRef = useRef(false);
 
@@ -148,11 +147,6 @@ export function useSpeechRecognition({
         // 既に停止している場合のエラーを無視
       }
     }
-
-    if (streamRef.current) {
-      streamRef.current.getTracks().forEach((track) => track.stop());
-      streamRef.current = null;
-    }
   }, [clearSilenceCheck, onResult]);
 
   const start = useCallback(async () => {
@@ -230,15 +224,7 @@ export function useSpeechRecognition({
     recognitionRef.current = recognition;
 
     try {
-      console.log("Getting microphone stream...");
-      const constraints: MediaStreamConstraints = {
-        audio: deviceId ? { deviceId: { exact: deviceId } } : true,
-      };
-
-      const stream = await navigator.mediaDevices.getUserMedia(constraints);
-      console.log("Microphone stream obtained:", stream);
-      streamRef.current = stream;
-
+      // getUserMediaを削除し、直接recognition.start()を呼ぶ
       const now = Date.now();
 
       isListeningRef.current = true;
