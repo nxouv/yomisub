@@ -103,6 +103,19 @@ export default function AboutPage() {
             </div>
           </section>
 
+          {/* 次回以降の配信 */}
+          <section className="space-y-5">
+            <h2 className="text-lg font-semibold text-yomi-text">次回以降の配信</h2>
+            <div className="space-y-4 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
+              <p>
+                設定はブラウザに自動保存されます。次回の配信では、YomiSubを開いて「字幕を開始」を押すだけでOKです
+              </p>
+              <p>
+                OBSのブラウザソースもそのままで大丈夫です。URLを再設定する必要はありません
+              </p>
+            </div>
+          </section>
+
           {/* うまくいかないとき */}
           <section className="space-y-5">
             <h2 className="text-lg font-semibold text-yomi-text">うまくいかないとき</h2>
