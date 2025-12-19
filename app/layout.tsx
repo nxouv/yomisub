@@ -29,20 +29,20 @@ export const metadata: Metadata = {
     siteName: "YomiSub",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
+        url: "/icon.png",
+        width: 512,
+        height: 512,
         alt: "YomiSub: 配信をリアルタイムで英語字幕に",
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "YomiSub: 配信をリアルタイムで英語字幕に",
     description:
       "無料ですぐ使える配信字幕ツール。声をリアルタイムで英語字幕に変換します。OBSに貼るだけで使えて、データはブラウザ内で処理されるので安心。",
     creator: "@nxouv",
-    images: ["/og-image.png"],
+    images: ["/icon.png"],
   },
   robots: {
     index: true,
