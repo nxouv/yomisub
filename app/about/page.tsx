@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Shell } from "@/components/layout/Shell";
 
 export const metadata: Metadata = {
@@ -27,9 +28,13 @@ export default function AboutPage() {
       <article className="max-w-xl mx-auto py-8 sm:py-12">
         {/* タイトル：アイコン + About（縦並び） */}
         <div className="flex flex-col items-center mb-12">
-          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-yomi-accent flex items-center justify-center mb-3">
-            <span className="text-white text-xl sm:text-2xl font-bold">Y</span>
-          </div>
+          <Image
+            src="/icon.png"
+            alt="YomiSub"
+            width={56}
+            height={56}
+            className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl mb-3"
+          />
           <h1 className="text-xl sm:text-2xl font-bold text-yomi-text">About</h1>
         </div>
 
