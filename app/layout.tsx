@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "YomiSub: OBSで使えるリアルタイム字幕ツール",
   description:
-    "無料ですぐ使える配信字幕ツール。声をリアルタイムで英語字幕に変換します。OBSに貼るだけで使えて、データはブラウザ内で処理されるので安心。",
+    "無料ですぐ使える配信字幕ツール。声をリアルタイムで英語字幕に変換します。OBSにURLを貼るだけで使えます。",
   authors: [{ name: "なな太郎", url: "https://x.com/nxouv" }],
   creator: "なな太郎",
   alternates: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     url: "/",
     title: "YomiSub: OBSで使えるリアルタイム字幕ツール",
     description:
-      "無料ですぐ使える配信字幕ツール。声をリアルタイムで英語字幕に変換します。OBSに貼るだけで使えて、データはブラウザ内で処理されるので安心。",
+      "無料ですぐ使える配信字幕ツール。声をリアルタイムで英語字幕に変換します。OBSにURLを貼るだけで使えます。",
     siteName: "YomiSub",
     images: [
       {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "YomiSub: OBSで使えるリアルタイム字幕ツール",
     description:
-      "無料ですぐ使える配信字幕ツール。声をリアルタイムで英語字幕に変換します。OBSに貼るだけで使えて、データはブラウザ内で処理されるので安心。",
+      "無料ですぐ使える配信字幕ツール。声をリアルタイムで英語字幕に変換します。OBSにURLを貼るだけで使えます。",
     creator: "@nxouv",
     images: ["/icon.png"],
   },
@@ -56,7 +56,7 @@ const jsonLd = {
   name: "YomiSub",
   alternateName: "よみさぶ",
   description:
-    "無料ですぐ使える配信字幕ツール。声をリアルタイムで英語字幕に変換します。OBSに貼るだけで使えて、データはブラウザ内で処理されるので安心。",
+    "無料ですぐ使える配信字幕ツール。声をリアルタイムで英語字幕に変換します。OBSにURLを貼るだけで使えます。",
   url: siteUrl,
   applicationCategory: "Multimedia",
   operatingSystem: "Web Browser",
