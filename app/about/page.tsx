@@ -59,7 +59,7 @@ export default function AboutPage() {
                 話した言葉が自動で日本語・英語字幕になって、OBSの配信画面に表示できます
               </p>
               <p>
-                英語翻訳をオンにすれば、海外のリスナーにも配信の内容が伝わります。日本語のみも可能です
+                英語翻訳をオンにすれば、海外のリスナーにも配信の内容が伝わります。日本語のみ表示もできます
               </p>
             </div>
             <div className="space-y-3 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
