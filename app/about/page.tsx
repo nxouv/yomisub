@@ -62,7 +62,7 @@ export default function AboutPage() {
                 英語翻訳をオンにすれば、海外のリスナーにも配信の内容が伝わります。日本語のみ表示もできます
               </p>
               <p><span className="font-bold">
-                ※最新版のGoogle Chromeで利用できます（ Chrome 138以降）
+                ※最新版のGoogle Chromeで利用できます（ Chrome 138以降のバージョン）
               </span></p>
             </div>
             <div className="space-y-3 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
