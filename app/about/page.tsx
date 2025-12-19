@@ -41,7 +41,7 @@ export default function AboutPage() {
         <div className="space-y-10">
           {/* このツールについて */}
           <section className="space-y-4">
-            <h2 className="text-lg font-semibold text-yomi-text">このツールについて</h2>
+            <h2 className="text-lg font-semibold text-yomi-text">YomiSubとは</h2>
             <div className="space-y-3 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
               <p>
                 YomiSubは
@@ -53,10 +53,13 @@ export default function AboutPage() {
                 >
                   なな太郎
                 </a>
-                が開発している、配信者のためのリアルタイム字幕ツールです。
+                が作った、配信者のためのリアルタイム字幕ツールです。
               </p>
               <p>
-                話した言葉が自動で字幕になり、OBSの配信画面に表示できます。英語翻訳をオンにすれば、海外のリスナーにも配信の内容が伝わります。
+                話した言葉が自動で日本語・英語の字幕になって、OBSの配信画面に表示できます。
+              </p>
+              <p>
+                英語翻訳をオンにすれば、海外のリスナーにも配信の内容が伝わります。日本語のみも可能です。
               </p>
             </div>
           </section>
@@ -66,37 +69,52 @@ export default function AboutPage() {
             <h2 className="text-lg font-semibold text-yomi-text">特徴</h2>
             <div className="space-y-3 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
               <p>
-                <span className="text-yomi-text font-medium">かんたん設定</span> — 難しい設定は必要ありません。URLをOBSに貼るだけで使えます。
+                <span className="text-yomi-text font-medium">かんたん設定</span> — 難しい設定は必要なし。URLをOBSに貼るだけ。
               </p>
               <p>
-                <span className="text-yomi-text font-medium">無料・登録不要</span> — アカウント作成なしで、すぐに使い始められます。
+                <span className="text-yomi-text font-medium">無料・登録不要</span> — アカウント作成なしで、すぐに使い始められる。
               </p>
               <p>
-                <span className="text-yomi-text font-medium">リアルタイム</span> — 話した瞬間に字幕が表示されます。
+                <span className="text-yomi-text font-medium">リアルタイム</span> — 話した瞬間に字幕が表示される。
               </p>
             </div>
           </section>
 
           {/* 使い方 */}
           <section className="space-y-4">
-            <h2 className="text-lg font-semibold text-yomi-text">使い方</h2>
+            <h2 className="text-lg font-semibold text-yomi-text">使いかた</h2>
             <div className="space-y-4 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
               <div className="space-y-1">
                 <p className="text-yomi-text font-medium">1. 字幕デザインを選ぶ</p>
-                <p>プリセット（Classic / Game / Soft / Clear）と表示位置を選びます。</p>
+                <p>プリセット（Classic / Game / Soft / Clear）と表示位置を選びます</p>
               </div>
               <div className="space-y-1">
                 <p className="text-yomi-text font-medium">2. 字幕コントロールを設定</p>
-                <p>使用するマイクを選び、英語翻訳が必要ならオンにします。</p>
+                <p>使用するマイクを選び、英語翻訳が必要ならオンにします</p>
               </div>
               <div className="space-y-1">
                 <p className="text-yomi-text font-medium">3. OBSに接続</p>
-                <p>「OBS用URL」の左にあるアイコンをOBSの配信画面にドラッグするか、URLをコピーしてブラウザソースに貼り付けます。</p>
+                <p>「OBS用URL」の左にあるアイコンをOBSの配信画面にドラッグするか、URLをコピーしてブラウザソースに貼り付けます</p>
               </div>
               <div className="space-y-1">
                 <p className="text-yomi-text font-medium">4. 字幕を開始</p>
-                <p>「字幕を開始」をクリックすると、話した言葉がリアルタイムで字幕になります。</p>
+                <p>「字幕を開始」をクリックすると、話した言葉がリアルタイムで字幕になります</p>
               </div>
+            </div>
+          </section>
+          {/* うまくいかないとき */}
+          <section className="space-y-4">
+            <h2 className="text-lg font-semibold text-yomi-text">うまくいかないとき</h2>
+            <div className="space-y-3 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
+              <p>
+                <span className="text-yomi-text font-medium">字幕が表示されない</span> — 「字幕を停止」をクリックしてから、もう一度「字幕を開始」をクリックしてみてください。
+              </p>
+              <p>
+                <span className="text-yomi-text font-medium">マイクが認識されない</span> — ブラウザのマイク許可を確認してください。ページを再読み込みすると改善することがあります。
+              </p>
+              <p>
+                <span className="text-yomi-text font-medium">英語翻訳が出ない</span> — Chrome 138以降が必要です。Chrome Canaryをお試しください。
+              </p>
             </div>
           </section>
         </div>
