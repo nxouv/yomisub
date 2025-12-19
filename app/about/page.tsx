@@ -88,7 +88,7 @@ export default function AboutPage() {
                 <p>使用するマイクを選び、英語翻訳が必要ならオンにします</p>
               </div>
               <div className="space-y-1">
-                <p className="text-yomi-text font-medium">3. 「OBSに接続」から配信画面にドラッグ</p>
+                <p className="text-yomi-text font-medium">3. 「OBSに接続」でURLをドラッグ</p>
                 <p>「OBS用URL」の左にあるアイコンをOBSの配信画面にドラッグするか、URLをコピーしてブラウザソースに貼り付けます</p>
               </div>
               <div className="space-y-1">
