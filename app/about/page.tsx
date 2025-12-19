@@ -53,20 +53,15 @@ export default function AboutPage() {
                 >
                   なな太郎
                 </a>
-                が作った、配信者のためのリアルタイム字幕ツールです。
+                が作った、配信者のためのリアルタイム字幕ツールです
               </p>
               <p>
-                話した言葉が自動で日本語・英語の字幕になって、OBSの配信画面に表示できます。
+                話した言葉が自動で日本語・英語の字幕になって、OBSの配信画面に表示できます
               </p>
               <p>
-                英語翻訳をオンにすれば、海外のリスナーにも配信の内容が伝わります。日本語のみも可能です。
+                英語翻訳をオンにすれば、海外のリスナーにも配信の内容が伝わります。日本語のみも可能です
               </p>
             </div>
-          </section>
-
-          {/* 特徴 */}
-          <section className="space-y-4">
-            <h2 className="text-lg font-semibold text-yomi-text">特徴</h2>
             <div className="space-y-3 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
               <p>
                 <span className="text-yomi-text font-medium">かんたん設定</span> — 難しい設定は必要なし。URLをOBSに貼るだけ。
