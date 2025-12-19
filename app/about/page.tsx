@@ -64,13 +64,13 @@ export default function AboutPage() {
             </div>
             <div className="space-y-3 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
               <p>
-                <span className="text-yomi-text font-medium">かんたん設定</span> — 難しい設定は必要なし。URLをOBSに貼るだけ。
+                <span className="text-yomi-text font-medium">かんたん設定</span> — 難しい設定は必要なし。URLをOBSに貼るだけ
               </p>
               <p>
-                <span className="text-yomi-text font-medium">無料・登録不要</span> — アカウント作成なしで、すぐに使い始められる。
+                <span className="text-yomi-text font-medium">無料・登録不要</span> — アカウント作成なしで、すぐに使い始められる
               </p>
               <p>
-                <span className="text-yomi-text font-medium">リアルタイム</span> — 話した瞬間に字幕が表示される。
+                <span className="text-yomi-text font-medium">リアルタイム</span> — 話した瞬間に字幕が表示される
               </p>
             </div>
           </section>
