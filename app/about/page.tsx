@@ -44,7 +44,7 @@ export default function AboutPage() {
             <h2 className="text-lg font-semibold text-yomi-text">YomiSubとは</h2>
             <div className="space-y-4 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
               <p>
-                YomiSub(よみさぶ)は
+                YomiSub(よみさぶ)は、
                 <a
                   href="https://x.com/nxouv"
                   target="_blank"
@@ -53,17 +53,17 @@ export default function AboutPage() {
                 >
                   なな太郎
                 </a>
-                が作った、配信者のためのリアルタイム字幕ツールです
+                が開発した配信者のためのリアルタイム字幕ツールです
               </p>
               <p>
-                話した言葉が自動で日本語・英語字幕になって、OBSの配信画面に表示できます
+                話した言葉が自動で日本語・英語字幕になって、OBSの配信画面に表示されます
               </p>
               <p>
-                英語翻訳をオンにすれば、海外のリスナーにも配信の内容が伝わります。日本語のみ表示もできます
+                英語翻訳をオンにすれば、日本語字の下に英語が表示されます<br />英語翻訳をオフで、日本語字幕のみの表示も可能です
               </p>
               <p className="mt-2">
                 <span className="font-bold">
-                  ※最新版のGoogle Chromeで利用できます（ Chrome 138以降のバージョン）
+                  ※最新版のGoogle Chromeで利用できます<br />　（ Chrome 138以降のバージョン）
                 </span>
               </p>
             </div>
