@@ -156,14 +156,20 @@ export function useSpeechRecognition({
   }, [clearSilenceCheck, onResult]);
 
   const start = useCallback(async () => {
+    console.log("=== Speech recognition start ===");
+
     if (typeof window === "undefined") {
+      console.log("Window is undefined");
       return;
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const SpeechRecognitionAPI = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 
+    console.log("SpeechRecognitionAPI:", SpeechRecognitionAPI);
+
     if (!SpeechRecognitionAPI) {
+      console.log("SpeechRecognitionAPI not found");
       onError?.("このブラウザは音声認識に対応していません。Chromeをお使いください。");
       return;
     }
@@ -220,11 +226,13 @@ export function useSpeechRecognition({
     recognitionRef.current = recognition;
 
     try {
+      console.log("Getting microphone stream...");
       const constraints: MediaStreamConstraints = {
         audio: deviceId ? { deviceId: { exact: deviceId } } : true,
       };
 
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
+      console.log("Microphone stream obtained:", stream);
       streamRef.current = stream;
 
       const now = Date.now();
@@ -237,9 +245,11 @@ export function useSpeechRecognition({
       lastSplitAtRef.current = now;
 
       startSilenceCheck();
+      console.log("Starting recognition...");
       recognition.start();
-    } catch {
-      console.error("Failed to start speech recognition");
+      console.log("Recognition started");
+    } catch (err) {
+      console.error("Failed to start speech recognition:", err);
       onError?.("音声認識の開始に失敗しました。マイクの設定を確認してください。");
     }
   }, [language, deviceId, onResult, onError, executeSplit, startSilenceCheck]);
