@@ -161,6 +161,15 @@ export function useSpeechRecognition({
       return;
     }
 
+    // 先にマイク権限を取得（権限ダイアログを表示させる）
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      stream.getTracks().forEach(track => track.stop()); // すぐに解放
+    } catch {
+      onError?.("マイクへのアクセスが拒否されました。");
+      return;
+    }
+
     const recognition = new SpeechRecognitionAPI() as SpeechRecognitionType;
     recognition.lang = language;
     recognition.continuous = true;
