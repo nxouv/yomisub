@@ -108,8 +108,7 @@ export default function AboutPage() {
             <h2 className="text-lg font-semibold text-yomi-text">うまくいかないとき</h2>
             <div className="space-y-4 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
               <p>
-                <span className="text-yomi-text font-medium">字幕が表示されない</span> — 「字幕を停止」をクリックしてから、もう一度「字幕を開始」をクリックしてみてください<br />
-                それでも表示されない場合は、URLバーの左にあるアイコンをクリックして「マイク」の権限を確認してください。<br />
+                <span className="text-yomi-text font-medium">字幕が表示されない</span> — URLバーの左にあるアイコンをクリックして「マイク」の権限を確認してください<br />
                 オンオフしたりマイクを選択すると認識ことがありました
               </p>
               <p>
