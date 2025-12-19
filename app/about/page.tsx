@@ -80,15 +80,15 @@ export default function AboutPage() {
             <h2 className="text-lg font-semibold text-yomi-text">使いかた</h2>
             <div className="space-y-4 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
               <div className="space-y-1">
-                <p className="text-yomi-text font-medium">1. 字幕デザインを選ぶ</p>
+                <p className="text-yomi-text font-medium">1. 「字幕デザイン」を選ぶ</p>
                 <p>プリセット（Classic / Game / Soft / Clear）と表示位置を選びます</p>
               </div>
               <div className="space-y-1">
-                <p className="text-yomi-text font-medium">2. 字幕コントロールを設定</p>
+                <p className="text-yomi-text font-medium">2. 「字幕コントロール」を設定</p>
                 <p>使用するマイクを選び、英語翻訳が必要ならオンにします</p>
               </div>
               <div className="space-y-1">
-                <p className="text-yomi-text font-medium">3. OBSに接続</p>
+                <p className="text-yomi-text font-medium">3. 「OBSに接続」から配信画面にドラッグ</p>
                 <p>「OBS用URL」の左にあるアイコンをOBSの配信画面にドラッグするか、URLをコピーしてブラウザソースに貼り付けます</p>
               </div>
               <div className="space-y-1">
