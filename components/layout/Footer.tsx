@@ -35,9 +35,6 @@ export function Footer() {
             <Link href="/about" className="text-yomi-text-sub hover:text-yomi-text">
               YomiSubの使い方 / うまくいかないとき
             </Link>
-            <Link href="#" className="text-yomi-text-sub hover:text-yomi-text">
-              （準備中）
-            </Link>
             <Link href="https://nanataro.app/privacy" className="text-yomi-text-sub hover:text-yomi-text">
               プライバシーポリシー
             </Link>
