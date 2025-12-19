@@ -107,13 +107,13 @@ export default function AboutPage() {
             <h2 className="text-lg font-semibold text-yomi-text">うまくいかないとき</h2>
             <div className="space-y-3 text-sm sm:text-base text-yomi-text-sub leading-relaxed">
               <p>
-                <span className="text-yomi-text font-medium">字幕が表示されない</span> — 「字幕を停止」をクリックしてから、もう一度「字幕を開始」をクリックしてみてください。
+                <span className="text-yomi-text font-medium">字幕が表示されない</span> — 「字幕を停止」をクリックしてから、もう一度「字幕を開始」をクリックしてみてください
               </p>
               <p>
-                <span className="text-yomi-text font-medium">マイクが認識されない</span> — ブラウザのマイク許可を確認してください。ページを再読み込みすると改善することがあります。
+                <span className="text-yomi-text font-medium">マイクが認識されない</span> — ブラウザのマイク許可を確認してください
               </p>
               <p>
-                <span className="text-yomi-text font-medium">英語翻訳が出ない</span> — Chrome 138以降が必要です。Chrome Canaryをお試しください。
+                <span className="text-yomi-text font-medium">英語翻訳が出ない</span> — Chrome 138以降が必要です。GoogleChromeが最新版かどうか確認してみてください
               </p>
             </div>
           </section>
