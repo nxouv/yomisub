@@ -58,7 +58,6 @@ export function useSpeechRecognition({
   onResult,
   onError,
   language = "ja-JP",
-  deviceId,
 }: UseSpeechRecognitionProps) {
   const recognitionRef = useRef<SpeechRecognitionType | null>(null);
   const [isListening, setIsListening] = useState(false);
@@ -150,20 +149,14 @@ export function useSpeechRecognition({
   }, [clearSilenceCheck, onResult]);
 
   const start = useCallback(async () => {
-    console.log("=== Speech recognition start ===");
-
     if (typeof window === "undefined") {
-      console.log("Window is undefined");
       return;
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const SpeechRecognitionAPI = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 
-    console.log("SpeechRecognitionAPI:", SpeechRecognitionAPI);
-
     if (!SpeechRecognitionAPI) {
-      console.log("SpeechRecognitionAPI not found");
       onError?.("このブラウザは音声認識に対応していません。Chromeをお使いください。");
       return;
     }
@@ -174,11 +167,9 @@ export function useSpeechRecognition({
     recognition.interimResults = true;
 
     recognition.onresult = (event) => {
-      console.log("=== onresult fired ===", event.results);
       const lastIndex = event.results.length - 1;
       const result = event.results[lastIndex];
       const transcript = result[0].transcript;
-      console.log("Transcript:", transcript);
       const now = Date.now();
 
       if (result.isFinal) {
@@ -197,8 +188,6 @@ export function useSpeechRecognition({
     };
 
     recognition.onerror = (event) => {
-      console.log("=== onerror fired ===", event.error);
-      console.error("Speech recognition error:", event.error);
       if (event.error === "not-allowed") {
         onError?.("マイクへのアクセスが拒否されました。");
       } else if (event.error === "audio-capture") {
@@ -211,7 +200,6 @@ export function useSpeechRecognition({
     };
 
     recognition.onend = () => {
-      console.log("=== onend fired ===");
       if (isListeningRef.current && recognitionRef.current) {
         try {
           recognitionRef.current.start();
@@ -224,7 +212,6 @@ export function useSpeechRecognition({
     recognitionRef.current = recognition;
 
     try {
-      // getUserMediaを削除し、直接recognition.start()を呼ぶ
       const now = Date.now();
 
       isListeningRef.current = true;
@@ -235,14 +222,11 @@ export function useSpeechRecognition({
       lastSplitAtRef.current = now;
 
       startSilenceCheck();
-      console.log("Starting recognition...");
       recognition.start();
-      console.log("Recognition started");
-    } catch (err) {
-      console.error("Failed to start speech recognition:", err);
+    } catch {
       onError?.("音声認識の開始に失敗しました。マイクの設定を確認してください。");
     }
-  }, [language, deviceId, onResult, onError, executeSplit, startSilenceCheck]);
+  }, [language, onResult, onError, executeSplit, startSilenceCheck]);
 
   useEffect(() => {
     return () => {
