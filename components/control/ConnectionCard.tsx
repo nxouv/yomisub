@@ -22,19 +22,25 @@ export function ConnectionCard() {
   const { sessionId, generateNewSession, translationEnabled } = useSessionStore();
   const { preset, position } = useAppearanceStore();
   const [baseUrl, setBaseUrl] = useState("");
-  const [copied, setCopied] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
   const isFirstRender = useRef(true);
 
   const { send } = useSubtitleChannel({ sessionId });
 
   useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isHydrated) return;
+
     if (!sessionId) {
       generateNewSession();
     }
     if (typeof window !== "undefined") {
       setBaseUrl(window.location.origin);
     }
-  }, [sessionId, generateNewSession]);
+  }, [isHydrated, sessionId, generateNewSession]);
 
   // 設定変更時にOBSに送信
   useEffect(() => {
